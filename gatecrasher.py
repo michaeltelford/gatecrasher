@@ -5,12 +5,12 @@
 import socket, sys, time           # Standard modules
 import UDP, TCP, ICMP              # Created modules
 
-# Check user privilages for ping functionality.
+# Check user access for ping functionality.
 def check_ping_priv():
     try:
         ICMP.ping("localhost", 0.01)
     except socket.error:
-        print("Must have root (administrator) privilages for ICMP, Goodbye")
+        print("Must have root (administrator) access for ICMP, Goodbye")
         sys.exit(0)
 
 # Ping hosts on network using the network ID arg.
@@ -147,14 +147,6 @@ Gatecrasher also has a built in UDP echo service which binds to a given port
 and echos any data sent to it until interrupted by the user manually.
 See usage examples below.
 
-NOTES FOR USE : 
-
-1) Gatecrasher was designed and tested on Ubuntu, no other OS's have been
-tested but Python is cross platform for the most part.
-2) On IP classes other than class C the network ID is less than needs to be 
-provided by Gatecrasher and therefore manual auditing is required for fully 
-accurate results.
-
 Usage examples :
 
 gatecrasher.py 192.168.1                - Pings all hosts on network ID
@@ -165,10 +157,7 @@ gatecrasher.py 192.168.0 @udp:67@ 0.05  - Custom UDP network search
 gatecrasher.py echo 8888                - UDP echo server on port 8888
 
 Standard supported protocols include :
-ICMP, HTTP, HTTPS, FTP, FTPS, SSH, MySQL
-
-Hope Gatecrasher helps you with your future network auditing and diagnosis.
-Developed by Michael Telford (.)(.) \n""")
+ICMP, HTTP, HTTPS, FTP, FTPS, SSH, MySQL\n""")
 
 def main():
 	# Default variables if not set via user args.
